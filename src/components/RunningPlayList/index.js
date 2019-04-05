@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import CustomTable from "../CustomTable";
-import { Button } from "reactstrap";
+import { Button, Media } from "reactstrap";
 
-import "../../styles/ui/_RunningPlayList.css"
+import "../../styles/ui/_RunningPlayList.css";
 
 class index extends Component {
   constructor(props) {
@@ -152,36 +152,47 @@ class index extends Component {
 
   init = () => {
     const { btnState } = this.state;
+    let style = {
+      backgroundColor: "whitesmoke"
+    };
     return (
       <div className="running-play-list-buttons">
-        <Button className="running-play-list-buttons-style"
-          color="success"
+        <Button
+          className="running-play-list-buttons-style"
+          style={style}
           onClick={() => this.musicPreviousAction()}
           disabled={btnState === 0 ? true : false}
         >
-          이전
+          <img src={require("../../assets/images/btn-backward.png")} />
         </Button>
-        <Button className="running-play-list-buttons-style"
-          color="success"
+        <Button
+          className="running-play-list-buttons-style"
+          style={style}
           onClick={() => this.musicStopAction()}
           disabled={btnState === 0 ? true : false}
         >
-          정지
+          <img src={require("../../assets/images/btn-stop.png")} />
         </Button>
-        <Button className="running-play-list-buttons-style"
-          color="success"
+        <Button
+          className="running-play-list-buttons-style"
+          style={style}
           onClick={() => {
             btnState === 1 ? this.musicPauseAction() : this.musicPlayAction();
           }}
         >
-          {btnState === 1 ? "일시정지" : "시작"}
+          {btnState === 1 ? (
+            <img src={require("../../assets/images/btn-pause.png")} />
+          ) : (
+            <img src={require("../../assets/images/btn-play.png")} />
+          )}
         </Button>
-        <Button className="running-play-list-buttons-style"
-          color="success"
+        <Button
+          className="running-play-list-buttons-style"
+          style={style}
           onClick={() => this.musicNextAction()}
           disabled={btnState === 0 ? true : false}
         >
-          다음
+          <img src={require("../../assets/images/btn-forward.png")} />
         </Button>
       </div>
     );

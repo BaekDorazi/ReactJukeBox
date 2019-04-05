@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
 
+let textStyle = {
+  color: "whitesmoke",
+  fontSize: "20px",
+  fontWeight: "normal"
+}
 class Playlist extends Component {
   craeteHeader = () => {
     const { datas } = this.props;
 
     return datas.columns.map(column => {
-      return <th>{column}</th>;
+      return <th style={textStyle}>{column}</th>;
     });
   };
 
@@ -18,9 +23,9 @@ class Playlist extends Component {
         <tr>
           {Object.keys(data).map(key => {
             if(key == "checked") {
-              if(data[key]) return <th>v</th>;
+              if(data[key]) return <th style={textStyle}>v</th>;
             }
-            return <th>{data[key]}</th>;
+            return <th style={textStyle}>{data[key]}</th>;
           })}
         </tr>
       );
@@ -29,7 +34,6 @@ class Playlist extends Component {
 
   render() {
     const { datas } = this.props;
-
     console.log(datas.data);
 
     return (

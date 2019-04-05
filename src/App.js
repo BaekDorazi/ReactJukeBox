@@ -32,13 +32,13 @@ class App extends Component {
     const { music } = this.state;
     return (
       <div className="App">
-      <Nav tabs className="App-Tabs">
+      <Nav tabs className="App-Tabs" style={{ color:"whitesmoke" }}>
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}
             >
-              Tab1
+              playlist
             </NavLink>
           </NavItem>
           <NavItem>
